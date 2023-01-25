@@ -1,0 +1,11 @@
+{
+  "name": "store_frontend",
+  "version": "0.1.0",
+  "description": "Frontend Angular Project for a simple store",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Afolarin Lawal",
+  "license": "ISC"
+}
