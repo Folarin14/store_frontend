@@ -1,0 +1,25 @@
+<div class="header">
+    <h1>My Store</h1>
+    <h4>Product List</h4> <h4> | </h4> <h4 class="cart-link" routerLink="/cart">Cart</h4>
+</div>
+
+
+<div class="grid-container">
+    <div class="product-display" *ngFor="let product of productList"> <img [src]="product.url" [alt]="product.description" width="300" routerLink="/product/{{product.id}}"> 
+        <p>{{product.name}}</p>
+        <p>${{product.price}}</p>
+        <p><select #quantity (change)="changeQuantity(product, quantity.value)">
+            <option value=""> -- </option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+    ></select></p>
+       <p><button class="cart-btn" [disabled]="quantity.value ==''" (click)="addToCart(product)" >Add to cart</button></p>
+</div>
+</div>

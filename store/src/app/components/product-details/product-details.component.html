@@ -1,0 +1,28 @@
+<div class="header">
+    <h1>My Store</h1>
+    <h4 routerLink="/">Product List</h4> <h4> | </h4> <h4 routerLink="/cart">Cart</h4>
+</div>
+
+<div class="product-container">
+    <div class="image">
+        <img [src]="selectedProduct.url" [alt]="selectedProduct.description" width="300"></div>
+        <div class="details">
+        <p class="product-name">{{selectedProduct.name}}</p>
+        <p>${{selectedProduct.price}}</p>
+        <p>{{selectedProduct.description}}</p>
+        <select #quantity (change)="changeQuantity(selectedProduct, quantity.value)">
+        <option value=""> -- </option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        </select>
+   <p><button class="cart-btn" [disabled]="quantity.value =='' " (click)="addToCart(selectedProduct)">Add to cart</button>
+    </div>
+
+</div>

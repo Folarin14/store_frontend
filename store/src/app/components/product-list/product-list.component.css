@@ -1,0 +1,71 @@
+.header {
+text-align: center;
+background-color: lightskyblue;
+color: white;
+width: auto;
+margin-top: -25px;
+margin-left: -8px;
+margin-right: -10px;
+padding: 0;
+}
+
+.header h1 {
+font-weight:800
+}
+
+.header h4 {
+display: inline-block;
+margin: 5px;
+}
+
+.header .cart-link:hover {
+cursor: pointer;
+text-decoration: underline;
+}
+
+
+.grid-container {
+margin-top: 100px;
+display: grid;
+/* border: 5px solid rgb(111,41,97); */
+width: 100%;
+grid-template-columns: repeat(auto-fill, 400px);
+row-gap: 50px;
+justify-content: center;
+}
+
+.grid-container > .product-display {
+/* background-color: rgba(39, 240, 52, 0.4); */
+width: 300px;
+text-align: center;
+}
+
+
+.grid-container > .product-display p button {
+display: inline-block;
+flex-direction: row;
+background-color: rgb(85, 167, 218);
+color: azure;
+border: grey;
+box-shadow:10px;
+border-radius: 4px;
+width: 25%;
+height: 70%;
+text-align: center;
+cursor:pointer;
+}
+
+.grid-container > .product-display p button:disabled {
+background-color: gray;
+cursor:default
+}
+
+.grid-container > .product-display select {
+width: 15%;
+text-align: center;
+}
+
+.grid-container > .product-display img {
+cursor: pointer;
+}
+
