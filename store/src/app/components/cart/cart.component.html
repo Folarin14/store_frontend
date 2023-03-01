@@ -6,24 +6,33 @@
 <div class="cart-container">
     <p *ngIf="productsInCart.length == 0" style="font-weight: bolder;"> No items in Cart</p>
     <div class="cart-products-img" *ngFor="let product of productsInCart"> <img [src]="product.url" [alt]="product.description" width="180">
-        <p>{{product.name}}</p>
-        <p>{{product.price}}</p><br>
-        <label for="amount">Amount: </label>
-        <input type="number" id="amount" name="amount">
+    <!-- </div>
+    <div class="cart-products-details" *ngFor="let product of productsInCart"> -->
+    <section class="cart-products-img">
+        <p style="font-weight: bolder">{{product.name}}</p>
+        <p>${{product.price}}</p><br>
+        <form>
+            <label id="amount-label" for="amount">Amount: </label>
+            <input #amount type="number" id="amount" name="amount" min="0" step="1" [value]="product.quantity" (change)="updateProductQuantityInCart(product, amount.value)">
+        </form>
+    </section>
     </div>
-    </div>
+    
+    <p style="font-weight: bolder; font-size:x-large;" >Total: ${{totalPriceOfCart}}</p>
+
 <div class="form">
-        <form target="_self">
-            <label for="fullname">Full Name</label><br>
-            <input type="text" id="fullname" name="fullname" placeholder="John Doe"><br>
+        <form #form="ngForm" target="_self">
+            <label style="margin-bottom: 50px; margin-top: 10px;" for="fullname">Full Name</label><br>
+            <input #name type="text" id="fullname" name="fullname" placeholder="John Doe" required min="4" autocomplete="on" ><br>
             <label for="address">Mailing Address</label><br>
-            <input type="text" id="address" name="address" placeholder="123 John Doe St"><br>
+            <input #mailaddress type="text" id="address" name="address" placeholder="123 John Doe St" required><br>
             <label for="email">Email</label><br>
-            <input type="email" id="email" name="address" placeholder="johndoe@example.com"><br>
+            <input #email type="email" id="email" name="address" placeholder="johndoe@example.com" required autocomplete="on"><br>
             <label for="card"> Credit Card</label><br>
-            <input type="" id="card" name="card" placeholder="(16-digit number)"><br>
-            <button type="submit"> Pay </button>
+            <input #creditcard type="" id="card" name="card" placeholder="(16-digit number)" required size="16" maxlength="16"><br>
+            <button type="submit" [disabled]="form.invalid" (click)="onSubmit(name.value, mailaddress.value, email.value, creditcard.value)"> Pay </button>
         
         </form>
+ </div>
  </div>
 

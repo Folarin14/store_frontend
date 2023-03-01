@@ -4,7 +4,8 @@ interface Product {
     price: number;
     url: string;
     description: string;
-    quantity?: number | undefined
+    quantity?: number | undefined;
+    total?: number | undefined
 }
 
 export default Product

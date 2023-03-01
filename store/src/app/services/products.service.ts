@@ -8,6 +8,7 @@ import Product from '../models/products';
 export class ProductsService {
   selectedProduct: Product | undefined
   productsInCart: Product[] = []
+  totalPriceOfCart: number = 0
   
   constructor() { }
 
@@ -18,12 +19,15 @@ export class ProductsService {
   changeQuantityFunction(product: Product, quantity: string | undefined){
     if (quantity) {
       product.quantity = parseInt(quantity)
+      product.total = parseFloat((product.price * product.quantity).toFixed(2))
+      this.totalPriceOfCart = this.totalPriceOfCart + product.total
       console.log(product)
     }
     else {
       console.log(`Quantity of product with id ${product.id} is undefined`)
     }
   }
+
 
   addToCartFunction(product: Product) {
     console.log(product, "added to cart")

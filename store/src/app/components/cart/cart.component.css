@@ -28,25 +28,91 @@ cursor: pointer;
 .cart-container {
 margin-top: 70px;
 display: grid;
-width: 50%;
+/* display: block; */
+width: 100%;
 justify-content: center;
-grid-template-columns: repeat(auto-fill, 400px);
-border: 5px solid rgb(111,41,97);
-column-gap: 100px;
-row-gap: 20px;
+align-items: center;
+text-align: center;
+grid-template-columns: 60% 40%;
+/* border: 5px solid rgb(111,41,97); */
+row-gap: 30px;
 }
 
-.form {
-display:grid;
-border: 5px solid rgb(111,41,97);
-width: 40%;
-/* justify-content: right; */
-align-items: right;
-justify-items: right;
+.cart-container .cart-products-img {
+display:inline-block;
+grid-column: 1;
 }
 
-.cart-container > * {
-background-color: rgba(39, 240, 52, 0.4);
+.cart-container section {
+vertical-align:85px;
+justify-items: center;
+}
+
+
+.cart-container .form {
+grid-column: 2/2;
+grid-row: 1/1;
 flex-direction: column;
+border: 5px solid rgb(111,41,97);
+width: 80%;
+justify-items: left;
+height: 100%;
 }
+
+.cart-container .form input {
+width: 80%;
+}
+
+.cart-container .form > label {
+background-color: rgba(39, 240, 52, 0.4);
+display: contents;
+}
+
+.cart-container .form button {
+background-color: rgb(85, 167, 218);
+color: azure;
+border: grey;
+}
+
+.cart-container .form button:disabled {
+background-color: gray;
+cursor:default
+}
+
+.cart-container .form button:hover {
+cursor: pointer;
+}
+/* text-align: left;
+justify-items: left;
+justify-content: left; */
+/* 
+align-content: flex-start;
+align-items: flex-start;
+align-self: ; */
+
+/* .cart-container .cart-products-img {
+grid-column: 1;
+border: 5px solid rgb(111,41,97);
+background-color: rgba(39, 240, 52, 0.4);
+}
+
+.cart-container .cart-products-details {
+grid-column: 2;
+background-color: rgba(39, 240, 52, 0.4);
+border: 5px solid rgb(111,41,97);
+}
+
+
+.cart-container .form {
+grid-column: 3;
+grid-row: 2;
+grid-column-start: form;
+flex-direction: column;
+border: 5px solid rgb(111,41,97);
+width: 60%;
+align-items:flex-start;
+justify-items: center;
+} */
+
+
     
