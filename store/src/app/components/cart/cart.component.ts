@@ -15,8 +15,6 @@ export class CartComponent implements OnInit {
   productsInCart: Product[] = []
   totalPriceOfCart: number = 0
 
-  // userInfo!: User; 
-
   constructor(private productService: ProductsService, private userService: UserService) {}
   ngOnInit(): void {
     this.productsInCart = this.productService.productsInCart
@@ -25,10 +23,13 @@ export class CartComponent implements OnInit {
   }
 
 
-  updateProductQuantityInCart(product:Product, quantity: string | undefined){
+
+  updateProductQuantityInCart(product:Product, quantity: string | undefined):void {
     this.productService.changeQuantityFunction(product, quantity)
+
     //product should already be updated, now update cart
     for (let prod of this.productsInCart) {
+
       // checks if product in cart is the same as updated product
       if (prod.id === product.id) {
         prod.quantity = product.quantity
@@ -43,10 +44,14 @@ export class CartComponent implements OnInit {
     console.log('Updated Product Quantity in Cart: ', this.productsInCart)
   }
 
-  updatePriceOfCart(){
-    
-  }
+  updatePriceOfCart(productCart: Product[]) {
+    // extract totals of each product as an array
+    const priceList = productCart.map(prod => prod.total!) 
 
+    //total price of cart
+    this.totalPriceOfCart = priceList.reduce((a, b) => a + b, 0) as number
+
+  }
 
   onSubmit(name: string, mailaddress: string, email: string, creditcard: number | string): void {
     this.userService.buyerInfo.fullName = name

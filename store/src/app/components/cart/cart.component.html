@@ -13,7 +13,7 @@
         <p>${{product.price}}</p><br>
         <form>
             <label id="amount-label" for="amount">Amount: </label>
-            <input #amount type="number" id="amount" name="amount" min="0" step="1" [value]="product.quantity" (change)="updateProductQuantityInCart(product, amount.value)">
+            <input #amount type="number" id="amount" name="amount" min="0" step="1" [value]="product.quantity" (change)="updateProductQuantityInCart(product, amount.value); updatePriceOfCart(productsInCart)">
         </form>
     </section>
     </div>
