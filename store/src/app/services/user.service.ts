@@ -5,16 +5,18 @@ import User from 'src/app/models/users';
   providedIn: 'root'
 })
 export class UserService {
-  buyerInfo!: User
+  buyerInfo: User = {
+    fullName: '',
+    mailAddress: '',
+    eMail: '',
+    creditCard: ''
+  }
 
-  constructor() { }
+  constructor() {
+    console.log(this.buyerInfo)
+   }
 
-  addUserInfo(name: string, mailaddress: string, email: string, creditcard: number | string): void {
-    this.buyerInfo.fullName = name
-    this.buyerInfo.mailAddress = mailaddress
-    this.buyerInfo.eMail = email
-    this.buyerInfo.creditCard = creditcard    
-
+  showUserInfo(): void {
     console.log("User service log", this.buyerInfo)
   }
 }
