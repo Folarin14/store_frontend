@@ -13,7 +13,7 @@ import User from 'src/app/models/users'
 export class CartComponent implements OnInit {
 
   productsInCart: Product[] = []
-  totalPriceOfCart: number = 0
+  totalPriceOfCart: number | string = 0
 
   constructor(private productService: ProductsService, private userService: UserService) {}
   ngOnInit(): void {
@@ -21,7 +21,6 @@ export class CartComponent implements OnInit {
     this.totalPriceOfCart = this.productService.totalPriceOfCart
     console.log("Products in Cart are: ", this.productsInCart)
   }
-
 
 
   updateProductQuantityInCart(product:Product, quantity: string | undefined):void {
@@ -49,15 +48,12 @@ export class CartComponent implements OnInit {
     const priceList = productCart.map(prod => prod.total!) 
 
     //total price of cart
-    this.totalPriceOfCart = priceList.reduce((a, b) => a + b, 0) as number
+    this.totalPriceOfCart = priceList.reduce((a, b) => a + b, 0).toFixed(2)
 
   }
 
-  onSubmit(name: string, mailaddress: string, email: string, creditcard: number | string): void {
-    this.userService.buyerInfo.fullName = name
-    this.userService.buyerInfo.mailAddress = mailaddress
-    this.userService.buyerInfo.eMail = email
-    this.userService.buyerInfo.creditCard = creditcard
-
-  }
+  // onSubmit(name: string, mailaddress: string, email: string, creditcard: number | string): void {
+  //   this.userService.addUserInfo(name, mailaddress, email, creditcard)
+  //   console.log("Log user service object: ", this.userService)
+  // }
 }

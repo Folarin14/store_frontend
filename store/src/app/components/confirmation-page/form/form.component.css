@@ -1,0 +1,23 @@
+.form input {
+    width: 80%;
+    }
+
+.form > label {
+background-color: rgba(39, 240, 52, 0.4);
+display: contents;
+}
+
+.form button {
+background-color: rgb(85, 167, 218);
+color: azure;
+border: grey;
+}
+
+.form button:disabled {
+background-color: gray;
+cursor:default
+}
+
+.form button:hover {
+cursor: pointer;
+}

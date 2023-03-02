@@ -17,5 +17,6 @@ export class ConfirmationPageComponent implements OnInit {
 
   addUser() {
     this.user = this.userInfo.buyerInfo
+    console.log('Confirmation page User object: ', this.user)
   }
 }

@@ -1,0 +1,14 @@
+<div class="form">
+    <form (ngSubmit)="onSubmit()" #form="ngForm" target="_self" action="/store/src/app/components/confirmation-page/confirmation-page.component.html">
+        <label style="margin-bottom: 50px; margin-top: 10px;" for="fullname">Full Name</label><br>
+        <input #name type="text" id="fullname" name="fullname" placeholder="John Doe" required min="4" autocomplete="on" [(ngModel)]="fullName" ><br>
+        <label for="address">Mailing Address</label><br>
+        <input #mailaddress type="text" id="address" name="address" placeholder="123 John Doe St" required [(ngModel)]="mailingAddress"><br>
+        <label for="email">Email</label><br>
+        <input #email type="email" id="email" name="address" placeholder="johndoe@example.com" required autocomplete="on" [(ngModel)]="eMail"><br>
+        <label for="card"> Credit Card</label><br>
+        <input #creditcard type="" id="card" name="card" placeholder="(16-digit number)" required size="16" maxlength="16" [(ngModel)]="creditCardNumber"><br>
+        <button type="submit" [disabled]="form.invalid"> Pay </button>
+    
+    </form>
+</div>

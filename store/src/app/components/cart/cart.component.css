@@ -49,7 +49,7 @@ justify-items: center;
 }
 
 
-.cart-container .form {
+.cart-container app-form {
 grid-column: 2/2;
 grid-row: 1/1;
 flex-direction: column;

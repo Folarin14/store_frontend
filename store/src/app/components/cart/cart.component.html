@@ -19,20 +19,6 @@
     </div>
     
     <p style="font-weight: bolder; font-size:x-large;" >Total: ${{totalPriceOfCart}}</p>
-
-<div class="form">
-        <form #form="ngForm" target="_self">
-            <label style="margin-bottom: 50px; margin-top: 10px;" for="fullname">Full Name</label><br>
-            <input #name type="text" id="fullname" name="fullname" placeholder="John Doe" required min="4" autocomplete="on" ><br>
-            <label for="address">Mailing Address</label><br>
-            <input #mailaddress type="text" id="address" name="address" placeholder="123 John Doe St" required><br>
-            <label for="email">Email</label><br>
-            <input #email type="email" id="email" name="address" placeholder="johndoe@example.com" required autocomplete="on"><br>
-            <label for="card"> Credit Card</label><br>
-            <input #creditcard type="" id="card" name="card" placeholder="(16-digit number)" required size="16" maxlength="16"><br>
-            <button type="submit" [disabled]="form.invalid" (click)="onSubmit(name.value, mailaddress.value, email.value, creditcard.value)"> Pay </button>
-        
-        </form>
- </div>
+    <app-form></app-form>
  </div>
 

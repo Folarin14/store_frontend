@@ -9,7 +9,12 @@ export class UserService {
 
   constructor() { }
 
-  // addUserInfo() {
+  addUserInfo(name: string, mailaddress: string, email: string, creditcard: number | string): void {
+    this.buyerInfo.fullName = name
+    this.buyerInfo.mailAddress = mailaddress
+    this.buyerInfo.eMail = email
+    this.buyerInfo.creditCard = creditcard    
 
-  // }
+    console.log("User service log", this.buyerInfo)
+  }
 }
