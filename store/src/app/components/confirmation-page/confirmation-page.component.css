@@ -26,5 +26,16 @@ text-decoration: underline;
 .main {
 margin-top: 200px;
 text-align: center;
+}
 
+.main button {
+background-color: rgb(57, 166, 234);
+color: azure;
+box-shadow:10px;
+border-radius: 5px;
+text-align: center;
+}
+
+.main button:hover {
+cursor: pointer;
 }
