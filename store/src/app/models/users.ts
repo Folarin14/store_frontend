@@ -3,6 +3,7 @@ interface User {
     mailAddress: string;
     eMail: string;
     creditCard: number | string;
+    cashSpent?: string | number;
 }
 
 export default User

@@ -13,12 +13,12 @@ import User from 'src/app/models/users'
 export class CartComponent implements OnInit {
 
   productsInCart: Product[] = []
-  totalPriceOfCart: number | string = 0
+  totalPriceOfCart: string = ''
 
   constructor(private productService: ProductsService, private userService: UserService) {}
   ngOnInit(): void {
     this.productsInCart = this.productService.productsInCart
-    this.totalPriceOfCart = this.productService.totalPriceOfCart
+    this.totalPriceOfCart = this.productService.totalPriceOfCart.toString()
     console.log("Products in Cart are: ", this.productsInCart)
   }
 
@@ -48,7 +48,7 @@ export class CartComponent implements OnInit {
     const priceList = productCart.map(prod => prod.total!) 
 
     //total price of cart
-    this.totalPriceOfCart = priceList.reduce((a, b) => a + b, 0).toFixed(2)
+    this.totalPriceOfCart = Math.round((priceList.reduce((a, b) => a + b, 0)) * 100 / 100).toFixed(2)
 
   }
 

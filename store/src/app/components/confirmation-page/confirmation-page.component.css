@@ -9,20 +9,22 @@
     padding: 0;
     }
     
-    .header h1 {
-    font-weight:800
-    }
-    
-    .header h4 {
-    display: inline-block;
-    margin: 5px;
-    }
-    
-    .header .cart-link:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    }
+.header h1 {
+font-weight:800
+}
 
-    .main {
-    margin-top: 200px;
-    }
+.header h4 {
+display: inline-block;
+margin: 5px;
+}
+
+.header .product-list:hover {
+cursor: pointer;
+text-decoration: underline;
+}
+
+.main {
+margin-top: 200px;
+text-align: center;
+
+}

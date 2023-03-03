@@ -19,6 +19,8 @@
     </div>
     
     <p style="font-weight: bolder; font-size:x-large;" >Total: ${{totalPriceOfCart}}</p>
-    <app-form></app-form>
+
+    <!-- Use an ngIf to hide form if cart is empty -->
+    <app-form [cashSpent]="totalPriceOfCart"></app-form>
  </div>
 

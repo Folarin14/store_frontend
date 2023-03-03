@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ProductsService } from 'src/app/services/products.service';
-import {map} from 'rxjs/operators'
 import Product from 'src/app/models/products';
 
 // import Product from 'src/app/models/products';

@@ -8,15 +8,15 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./confirmation-page.component.css']
 })
 export class ConfirmationPageComponent implements OnInit {
-  user!: User
+  user: User = this.userInfo.buyerInfo
   constructor(private userInfo: UserService) {}
 
   ngOnInit(): void {
     // console.log(this.userInfo.buyerInfo)
   }
 
-  addUser() {
-    this.user = this.userInfo.buyerInfo
-    console.log('Confirmation page User object: ', this.user)
-  }
+  // addUser() {
+  //   this.user = this.userInfo.buyerInfo
+  //   console.log('Confirmation page User object: ', this.user)
+  // }
 }
