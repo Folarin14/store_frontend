@@ -10,8 +10,7 @@ import Product from './../../models/products';
 export class ProductListComponent implements OnInit {
   productList: Product[] = []
   productAmount: number = 1
-  // productsInCart: Product[] = []
-
+ 
   constructor(private productService: ProductsService) {}
 
   ngOnInit(): void {

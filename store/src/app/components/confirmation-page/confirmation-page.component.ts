@@ -12,11 +12,6 @@ export class ConfirmationPageComponent implements OnInit {
   constructor(private userInfo: UserService) {}
 
   ngOnInit(): void {
-    // console.log(this.userInfo.buyerInfo)
   }
 
-  // addUser() {
-  //   this.user = this.userInfo.buyerInfo
-  //   console.log('Confirmation page User object: ', this.user)
-  // }
 }

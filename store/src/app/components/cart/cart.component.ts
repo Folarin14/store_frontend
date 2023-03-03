@@ -52,8 +52,4 @@ export class CartComponent implements OnInit {
 
   }
 
-  // onSubmit(name: string, mailaddress: string, email: string, creditcard: number | string): void {
-  //   this.userService.addUserInfo(name, mailaddress, email, creditcard)
-  //   console.log("Log user service object: ", this.userService)
-  // }
 }
