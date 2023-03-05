@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
   constructor(private productService: ProductsService, private userService: UserService) {}
   ngOnInit(): void {
     this.productsInCart = this.productService.productsInCart
-    this.totalPriceOfCart = this.productService.totalPriceOfCart.toString()
+    this.totalPriceOfCart = this.productService.totalPriceOfCart
     console.log("Products in Cart are: ", this.productsInCart)
   }
 
@@ -38,17 +38,20 @@ export class CartComponent implements OnInit {
     // remove item from cart if Amount is 0
     if (quantity === '0') {
       this.productsInCart = this.productsInCart.filter(prod => prod.id !== product.id)
-
     }
     console.log('Updated Product Quantity in Cart: ', this.productsInCart)
   }
 
   updatePriceOfCart(productCart: Product[]) {
-    // extract totals of each product as an array
-    const priceList = productCart.map(prod => prod.total!) 
+    this.productService.UpdateCartFunction(productCart)
+    this.totalPriceOfCart = this.productService.totalPriceOfCart
+    // // extract totals of each product as an array
+    // const priceList = productCart.map(prod => prod.total!) 
+    // console.log('Update Price of Cart Function - Product Cart: ', productCart)
+    // console.log('Update Price of Cart Function - this.productinCart: ', this.productsInCart)
 
-    //total price of cart
-    this.totalPriceOfCart = Math.round((priceList.reduce((a, b) => a + b, 0)) * 100 / 100).toFixed(2)
+    // //total price of cart
+    // this.totalPriceOfCart = (priceList.reduce((a, b) => a + b, 0)).toFixed(2)
 
   }
 
