@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+// import { FormControl, Validators, EmailValidator } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +15,9 @@ export class FormComponent implements OnInit{
   creditCardNumber: string | number = ''
   @Input() cashSpent = ''
 
-  constructor(private user:UserService, private router: Router, private activatedroute:ActivatedRoute) {}
+  constructor(private user:UserService, private router: Router, private activatedroute:ActivatedRoute) {
+    // const control = new FormControl(this.eMail, Validators.email)
+  }
 
   ngOnInit(): void {
     

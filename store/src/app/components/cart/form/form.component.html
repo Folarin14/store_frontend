@@ -2,22 +2,33 @@
     <form (ngSubmit)="onSubmit()" #form="ngForm">
         <label style="margin-bottom: 50px; margin-top: 10px;" for="fullname">Full Name</label><br>
         <input #name="ngModel" type="text" id="fullname" name="fullname" placeholder="John Doe" required minlength="6" autocomplete="on" [(ngModel)]="fullName" ><br>
-        <div style="color: red;" *ngIf="name.errors?.['minlength']">Name must be at least 6 characters long</div>
-        <div style="color: red;" *ngIf="name.errors?.['required']">Name is required</div>
-
+        <div>
+            <small style="color: red;" *ngIf="name.errors?.['minlength']">Name must be at least 6 characters long</small>
+            <small style="color: red;" *ngIf="name.errors?.['required']">Name is required</small>
+        </div>
+ 
 
         <label for="address">Mailing Address</label><br>
         <input #mailaddress="ngModel" type="text" id="address" name="address" placeholder="123 John Doe St" required [(ngModel)]="mailingAddress"><br>
-        <div style="color: red;" *ngIf="mailaddress.errors?.['required']">Mailing Address is required</div>
-        <div></div>
+        <div>
+            <small style="color: red;" *ngIf="mailaddress.errors?.['required']">Mailing Address is required</small>
+        </div>
 
         <label for="email">Email</label><br>
-        <input #email="ngModel" type="email" id="email" name="address" placeholder="johndoe@example.com" required autocomplete="on" [(ngModel)]="eMail"><br>
-        <div style="color: red;" *ngIf="email.errors?.['required']">Please input your email</div>
+        <input #email="ngModel" type="email" name="email" placeholder="johndoe@example.com" pattern="^\S+@\S+$" required autocomplete="on" [(ngModel)]="eMail"><br>
+        <div>
+            <small style="color: red;" *ngIf="email.errors?.['required']">Please input your email </small>
+            <small style="color: red;" *ngIf="email.errors?.['pattern']"> Email address is not valid</small>
+        </div>
+        <!-- <div >Email address is not valid</div> -->
 
         <label for="card"> Credit Card</label><br>
-        <input #creditcard="ngModel" type="" id="card" name="card" placeholder="(16-digit number)" required size="16" maxlength="16" [(ngModel)]="creditCardNumber"><br>
-        <div style="color: red;" *ngIf="creditcard.errors?.['required']">Credit card number is required to complete checkout</div>
+        <input #creditcard="ngModel" type="text" pattern="^[0-9]+" id="card" name="card" placeholder="0000 0000 0000 0000" required maxlength="16" minlength="16" [(ngModel)]="creditCardNumber"><br>
+        <div>
+            <small style="color: red;" *ngIf="creditcard.errors?.['required']">Credit card number is required to complete checkout</small>
+            <small style="color: red;" *ngIf="creditcard.errors?.['pattern']">Invalid input. Numbers only</small>
+            <small style="color: red;" *ngIf="creditcard.errors?.['minlength'] && !creditcard.errors?.['pattern']">Invalid input. 16 characters expected</small>
+        </div>
 
         <button type="submit" [disabled]="form.invalid"> Pay </button>
     
